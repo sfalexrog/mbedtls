@@ -730,7 +730,7 @@ scripts/config.pl set MBEDTLS_ENTROPY_C
 scripts/config.pl unset MBEDTLS_ENTROPY_NV_SEED
 scripts/config.pl unset MBEDTLS_ENTROPY_HARDWARE_ALT
 scripts/config.pl unset MBEDTLS_HAVEGE_C
-CC=gcc cmake  -D UNSAFE_BUILD=ON -D CMAKE_C_FLAGS:String="-fsanitize=address -fno-common -O3" .
+CC=gcc cmake  -D UNSAFE_BUILD=ON -D MBEDTLS_C_FLAGS:String="-fsanitize=address -fno-common -O3" .
 make
 
 msg "test: MBEDTLS_TEST_NULL_ENTROPY - main suites (inc. selftests) (ASan build)"

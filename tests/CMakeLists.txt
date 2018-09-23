@@ -40,13 +40,13 @@ function(add_test_suite suite_name)
 endfunction(add_test_suite)
 
 if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_CLANG)
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-unused-function")
+    set(MBEDTLS_C_FLAGS "${MBEDTLS_C_FLAGS} -Wno-unused-function")
 endif(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_CLANG)
 
 if(MSVC)
     # If a warning level has been defined, suppress all warnings for test code
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /W0")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /WX-")
+    set(MBEDTLS_C_FLAGS "${MBEDTLS_C_FLAGS} /W0")
+    set(MBEDTLS_C_FLAGS "${MBEDTLS_C_FLAGS} /WX-")
 endif(MSVC)
 
 add_test_suite(aes aes.ecb)
